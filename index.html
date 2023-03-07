@@ -2,23 +2,23 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Subtitle Parser</title>
+  <title>Transcript Parser</title>
 </head>
 <body>
-  <h1>Subtitle Parser</h1>
+  <h1>Transcript Parser</h1>
   <form>
-    <label for="subtitle-file">Select a .vtt file:</label>
-    <input type="file" id="subtitle-file">
+    <label for="transcript-file">Select a .vtt file:</label>
+    <input type="file" id="transcript-file">
     <br>
-    <button type="button" onclick="parseSubtitle()">Parse Subtitle</button>
+    <button type="button" onclick="tarseTranscript()">Parse transcript</button>
   </form>
   <br>
   <pre id="parsed-text"></pre>
   
   <script>
-    function parseSubtitle() {
-      // Get the selected file
-      const fileInput = document.getElementById("subtitle-file");
+    function tarseTranscript() {
+      // Get the transcript
+      const fileInput = document.getElementById("transcript-file");
       const file = fileInput.files[0];
 
       // Create a FileReader to read the file contents
@@ -35,9 +35,6 @@
         const patternForEmptyLines = /^\s*$/gm;
 
         const parsedText = contents.replace(patternForTimes, "").replace(patternForGuids, "").replace(patternForEmptyLines, "");
-        // const parsedText = contents.replace(patternForGuids, "");
-        // const parsedText = contents.replace(patternForEmptyLines, "");
-
 
         // Display the parsed text in the pre element
         const parsedTextElement = document.getElementById("parsed-text");
